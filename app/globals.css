@@ -5,7 +5,8 @@
     'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
     'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
 
-  --foreground-rgb: 0, 0, 0;
+  --foreground-rgb: #FAFAFA;
+  --card: #FFFFFF;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 
@@ -86,7 +87,8 @@ body {
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
+  background-color: var(--foreground-rgb);
+  color: black;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -105,4 +107,30 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+li {
+  display: flex;
+  align-items: center;
+  border-radius: var(--border-radius);
+  margin: 10px;
+  padding: 10px;
+  max-width: 600px;
+  width: 100%;
+  background-color: var(--card);
+}
+
+h3 {
+  margin: 0;
+  flex-grow: 1;
+  color: rgb(var(--foreground-rgb));
+  font-size: 1.2rem;
+}
+
+button {
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: var(--border-radius);
 }
