@@ -157,6 +157,7 @@ const MovieList = () => {
 
 export default MovieList; */
 
+//v3-def
 'use client'
 import React, { useState, useEffect } from 'react';
 import { fetchMovies } from '../utils/api';
@@ -245,4 +246,3 @@ const MovieList = () => {
 };
 
 export default MovieList;
-

@@ -2,36 +2,6 @@
 import React, { useEffect, useState } from 'react';
 
 const getFavoritesFromLocalStorage = () => {
-  if (typeof window !== 'undefined' && window.localStorage) {
-    const favoritesString = localStorage.getItem('favorites');
-    return favoritesString ? JSON.parse(favoritesString) : [];
-  }
-  return [];
-};
-
-const FavoritesList = () => {
-  const [favorites, setFavorites] = useState(getFavoritesFromLocalStorage());
-
-  useEffect(() => {
-    const handleStorageChange = () => {
-      const storedFavorites = getFavoritesFromLocalStorage();
-      setFavorites(storedFavorites);
-    };
-
-    window.addEventListener('storage', handleStorageChange);
-
-    return () => {
-      window.removeEventListener('storage', handleStorageChange);
-    };
-  }, []);
-
-  const removeFavorite = (favoriteId) => {
-    const updatedFavorites = favorites.filter((favorite) => favorite.id !== favoriteId);
-    setFavorites(updatedFavorites);
-    localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
-  };
-
-/* const getFavoritesFromLocalStorage = () => {
     if (typeof window !== 'undefined' && window.localStorage) {
         const favoritesString = localStorage.getItem('favorites');
         return favoritesString ? JSON.parse(favoritesString) : [];
@@ -43,14 +13,44 @@ const FavoritesList = () => {
     const [favorites, setFavorites] = useState(getFavoritesFromLocalStorage());
 
     useEffect(() => {
-        setFavorites(getFavoritesFromLocalStorage());
+        const handleStorageChange = () => {
+            const storedFavorites = getFavoritesFromLocalStorage();
+            setFavorites(storedFavorites);
+        };
+
+        window.addEventListener('storage', handleStorageChange);
+
+        return () => {
+            window.removeEventListener('storage', handleStorageChange);
+        };
     }, []);
 
     const removeFavorite = (favoriteId) => {
         const updatedFavorites = favorites.filter((favorite) => favorite.id !== favoriteId);
         setFavorites(updatedFavorites);
         localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
-    }; */
+    };
+
+    /* const getFavoritesFromLocalStorage = () => {
+        if (typeof window !== 'undefined' && window.localStorage) {
+            const favoritesString = localStorage.getItem('favorites');
+            return favoritesString ? JSON.parse(favoritesString) : [];
+        }
+        return [];
+    };
+    
+    const FavoritesList = () => {
+        const [favorites, setFavorites] = useState(getFavoritesFromLocalStorage());
+    
+        useEffect(() => {
+            setFavorites(getFavoritesFromLocalStorage());
+        }, []);
+    
+        const removeFavorite = (favoriteId) => {
+            const updatedFavorites = favorites.filter((favorite) => favorite.id !== favoriteId);
+            setFavorites(updatedFavorites);
+            localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+        }; */
 
     return (
         /*         <div>
